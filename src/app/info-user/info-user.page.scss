@@ -1,0 +1,92 @@
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+    --border-width: 0;
+    color: #333;
+  }
+}
+
+ion-content {
+  --background: #f0f0f0;
+  position: relative;
+}
+
+.header-background {
+  height: 250px;
+  background: linear-gradient(45deg, #c9dde6 0%, #ffe6ea 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.profile-info {
+  position: relative;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+
+.user-avatar {
+  width: 120px;
+  height: 120px;
+  border: 5px solid #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --border-radius: 50%;
+}
+
+.user-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
+
+.user-card {
+  position: relative;
+  top: -10px;
+  height: 150px;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 80px; 
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.contact-card {
+  margin-top: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+ion-item {
+  --background: transparent;
+  --border-color: #f0f0f0;
+  --inner-border-width: 0 0 1px 0;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  color: #333;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  margin-inline-end: 15px;
+  color: #87ceeb;
+}
+
+ion-list ion-item:last-child {
+  --inner-border-width: 0;
+}

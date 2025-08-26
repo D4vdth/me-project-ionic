@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>info-user</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="header-background"></div>
+
+  <div class="profile-info">
+    <ion-avatar class="user-avatar">
+      <img [src]="imgUrl" alt="User" />
+    </ion-avatar>
+    <ion-label class="user-name">{{ userName }}</ion-label>
+  </div>
+  
+  <ion-card class="user-card">
+    </ion-card>
+  
+  <ion-card class="contact-card">
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon aria-hidden="true" [name]="phoneIcon" slot="start" class="contact-icon"></ion-icon>
+          <ion-label>{{ phoneNumber }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon aria-hidden="true" [name]="idCardIcon" slot="start" class="contact-icon"></ion-icon>
+          <ion-label>{{ idNumber }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon aria-hidden="true" [name]="emailIcon" slot="start" class="contact-icon"></ion-icon>
+          <ion-label>{{ email }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
