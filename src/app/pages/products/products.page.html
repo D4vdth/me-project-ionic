@@ -1,0 +1,11 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <app-product-element [product]="product"></app-product-element>
+  <app-product-form (newProduct)="processProduct($event)"></app-product-form>
+</ion-content>
