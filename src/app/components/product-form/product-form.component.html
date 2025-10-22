@@ -1,32 +1,49 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-title>New Product</ion-card-title>
+    <ion-card-title>Nuevo Producto</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
-    <ion-list>
-      <ion-item>
-        <ion-input [(ngModel)]="product.title" placeholder="Title"></ion-input>
-      </ion-item>
+    <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+      <ion-list>
+        <ion-item [class.ion-invalid]="productForm.get('title')?.invalid && productForm.get('title')?.touched">
+          <ion-input formControlName="title" placeholder="Título"></ion-input>
+          <div *ngIf="productForm.get('title')?.invalid && productForm.get('title')?.touched" class="ion-text-danger">
+            El título es requerido.
+          </div>
+        </ion-item>
 
-      <ion-item>
-        <ion-input type="number" [(ngModel)]="product.price" placeholder="PrIce"></ion-input>
-      </ion-item>
+        <ion-item [class.ion-invalid]="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+          <ion-input type="number" formControlName="price" placeholder="Precio"></ion-input>
+          <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" class="ion-text-danger">
+            El precio es requerido y debe ser mayor a 0.
+          </div>
+        </ion-item>
+        
+        <ion-item [class.ion-invalid]="productForm.get('description')?.invalid && productForm.get('description')?.touched">
+          <ion-input formControlName="description" placeholder="Descripción"></ion-input>
+          <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched" class="ion-text-danger">
+            La descripción es requerida.
+          </div>
+        </ion-item>
 
-      <ion-item>
-        <ion-input [(ngModel)]="product.description" placeholder="Description"></ion-input>
-      </ion-item>
+        <ion-item [class.ion-invalid]="productForm.get('category')?.invalid && productForm.get('category')?.touched">
+          <ion-input formControlName="category" placeholder="Categoría"></ion-input>
+          <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched" class="ion-text-danger">
+            La categoría es requerida.
+          </div>
+        </ion-item>
 
-      <ion-item>
-        <ion-input [(ngModel)]="product.category" placeholder="Category"></ion-input>
-      </ion-item>
+        <ion-item [class.ion-invalid]="productForm.get('image')?.invalid && productForm.get('image')?.touched">
+          <ion-input formControlName="image" placeholder="URL de la imagen"></ion-input>
+          <div *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched" class="ion-text-danger">
+            La URL de la imagen es requerida.
+          </div>
+        </ion-item>
+      </ion-list>
 
-      <ion-item>
-        <ion-input [(ngModel)]="product.image" placeholder="Image Url"></ion-input>
-      </ion-item>
-    </ion-list>
-
-    <ion-button expand="block" (click)="saveProduct()">Save Product</ion-button>
+      <ion-button expand="block" type="submit" [disabled]="productForm.invalid">Guardar Producto</ion-button>
+    </form>
   </ion-card-content>
 </ion-card>
 

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { IonInput, IonButton, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonCardTitle, IonCard} from '@ionic/angular/standalone';
 import { Product } from 'src/app/interfaces/product';
 @Component({
@@ -7,29 +7,31 @@ import { Product } from 'src/app/interfaces/product';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss'],
   standalone: true,
-  imports: [IonInput, IonButton, FormsModule, IonCardHeader, IonCardContent, IonList, IonItem, IonCardTitle, IonCard]
+  imports: [IonInput, IonButton, ReactiveFormsModule, IonCardHeader, IonCardContent, IonList, IonItem, IonCardTitle, IonCard]
 })
 export class ProductFormComponent  implements OnInit {
 
   constructor() { }
 
-  product: Product = {
-    id: 0,
-    title: '',
-    price: null,
-    description: '',
-    category: '',
-    image: ''
-  };
-
+  productForm!: FormGroup;
 
   @Output() newProduct: EventEmitter<Product> = new EventEmitter()
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.productForm = new FormGroup({
+      title: new FormControl('', Validators.required),
+      price: new FormControl(null, [Validators.required, Validators.min(0.01)]),
+      description: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      image: new FormControl('', Validators.required)
+    });
+  }
 
   public saveProduct(){
-    this.newProduct.emit(this.product)
-    
+    if (this.productForm.valid) {
+      this.newProduct.emit(this.productForm.value as Product);
+      this.productForm.reset();
+    }
   }
 
 }
