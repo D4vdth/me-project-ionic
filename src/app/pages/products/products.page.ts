@@ -21,9 +21,9 @@ export class ProductsPage implements OnInit {
   ngOnInit() {
   }
 
-  public processProduct(product:Product){
-    
-    this.product.push(product);
+  public processProduct(product: Product) {
+    const newProduct: Product = { ...product };
+    this.product = [...this.product, newProduct];
   }
 
 }

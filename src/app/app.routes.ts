@@ -7,13 +7,8 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'folder/:id',
-    loadComponent: () =>
-      import('./folder/folder.page').then((m) => m.FolderPage),
-  },
-  {
     path: 'info-user',
-    loadComponent: () => import('./info-user/info-user.page').then( m => m.InfoUserPage)
+    loadComponent: () => import('./pages/info-user/info-user.page').then( m => m.InfoUserPage)
   },
   {
     path: 'home',

@@ -25,7 +25,14 @@ export class HomePage implements OnInit {
   data = {}
 
   save() {
-    throw new Error('Method not implemented.');
+    this.data = {
+      usuario: this.usuario,
+      direccion: this.direccion,
+      pais: this.pais,
+      ciudad: this.ciudad,
+      idioma: this.idioma,
+      moneda: this.moneda
+    };
   }
 
   ngOnInit() {
