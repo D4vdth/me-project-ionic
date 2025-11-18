@@ -6,45 +6,41 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <div class="ion-text-center">
-    <ion-avatar>
+  <div class="home-header">
+    <ion-avatar class="home-avatar">
       <img [src]="logoUrl" alt="Logo">
     </ion-avatar>
-    <p>Property binding</p>
+    <h2 class="home-title">{{ nameApp }}</h2>
   </div>
 
-  <div class="ion-text-center ion-margin-top">
-    <h2>{{ nameApp }}</h2>
-    <p>Interpolación</p>
-  </div>
+  <ion-card class="home-card">
+    <ion-card-header>
+      <ion-card-title>Datos de usuario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list class="home-list">
+        <ion-item>
+          <ion-input name="usuario" placeholder="usuario" [(ngModel)]="usuario"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="direccion" placeholder="dirección entrega" [(ngModel)]="direccion"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="pais" placeholder="país" [(ngModel)]="pais"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="ciudad" placeholder="ciudad" [(ngModel)]="ciudad"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="idioma" placeholder="idioma" [(ngModel)]="idioma"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="moneda" placeholder="moneda" [(ngModel)]="moneda"></ion-input>
+        </ion-item>
+      </ion-list>
 
-  <ion-list class="ion-margin-top">
-    <ion-item>
-      <ion-input placeholder="usuario" [(ngModel)]="usuario"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="dirección entrega" [(ngModel)]="direccion"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="país" [(ngModel)]="pais"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="ciudad" [(ngModel)]="ciudad"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="idioma" [(ngModel)]="idioma"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="moneda" [(ngModel)]="moneda"></ion-input>
-    </ion-item>
-    <p class="ion-text-center">Two way binding</p>
-  </ion-list>
-
-  <div class="ion-text-center ion-margin-top">
-    <ion-button expand="block" color="success" (click)="save()">
-      Guardar
-    </ion-button>
-    <p>Event binding</p>
-  </div>
+      <ion-button expand="block" color="success" (click)="save()">Guardar</ion-button>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
