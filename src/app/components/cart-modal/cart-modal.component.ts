@@ -11,19 +11,19 @@ import { CartItem } from 'src/app/interfaces/cart-item';
   imports: [CommonModule, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonThumbnail, IonLabel, IonButton]
 })
 export class CartModalComponent {
-  @Input() items: CartItem[] = [];
-  @Output() close = new EventEmitter<void>();
-  @Output() remove = new EventEmitter<number>();
+  @Input() articulos: CartItem[] = [];
+  @Output() cerrar = new EventEmitter<void>();
+  @Output() eliminar = new EventEmitter<number>();
 
   get total(): number {
-    return this.items.reduce((sum, it) => sum + (it.product.price * it.quantity), 0);
+    return this.articulos.reduce((sum, it) => sum + (it.product.price * it.quantity), 0);
   }
 
-  onClose() {
-    this.close.emit();
+  alCerrar() {
+    this.cerrar.emit();
   }
 
-  removeItem(productId: number) {
-    this.remove.emit(productId);
+  eliminarArticulo(productId: number) {
+    this.eliminar.emit(productId);
   }
 }

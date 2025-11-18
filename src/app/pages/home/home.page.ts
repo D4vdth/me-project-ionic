@@ -20,12 +20,12 @@ export class HomePage implements OnInit {
   moneda: any;
 
   constructor() { }
-  nameApp = 'Me-Ecommerce'
-  logoUrl = 'assets/user.png'
-  data = {}
+  nombreApp = 'Me-Ecommerce'
+  urlLogo = 'assets/user.png'
+  datos = {}
 
-  save() {
-    this.data = {
+  guardar() {
+    this.datos = {
       usuario: this.usuario,
       direccion: this.direccion,
       pais: this.pais,
@@ -33,7 +33,7 @@ export class HomePage implements OnInit {
       idioma: this.idioma,
       moneda: this.moneda
     };
-    console.log(this.data);
+    console.log(this.datos);
   }
 
   ngOnInit() {

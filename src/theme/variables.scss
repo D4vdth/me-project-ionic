@@ -1,2 +1,17 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+:root {
+  /* Paleta elegante */
+  --ion-color-primary: #4f46e5; /* Indigo */
+  --ion-color-primary-rgb: 79, 70, 229;
+  --ion-color-secondary: #f59e0b; /* Amber */
+  --ion-color-secondary-rgb: 245, 158, 11;
+  --ion-color-success: #10b981; /* Emerald */
+  --ion-color-success-rgb: 16, 185, 129;
+  --ion-color-medium: #64748b; /* Slate */
+  --ion-color-medium-rgb: 100, 116, 139;
+
+  --ion-background-color: #f7f7fb;
+  --ion-text-color: #1f2937;
+}

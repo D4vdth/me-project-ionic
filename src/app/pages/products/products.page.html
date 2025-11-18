@@ -1,16 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>products</ion-title>
+    <ion-title>Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-button expand="block" color="secondary" (click)="openForm()">Nuevo producto</ion-button>
+  <ion-button expand="block" color="secondary" (click)="abrirFormulario()">Nuevo producto</ion-button>
 
-  <app-product-element [product]="product" (addToCart)="onAddToCart($event)"></app-product-element>
-  <ion-modal [isOpen]="isFormOpen" (didDismiss)="closeForm()">
+  <app-product-element [productos]="productos" (agregarAlCarrito)="alAgregarAlCarrito($event)"></app-product-element>
+  <ion-modal [isOpen]="formularioAbierto" (didDismiss)="cerrarFormulario()">
     <ng-template>
-      <app-product-form (newProduct)="onNewProduct($event)"></app-product-form>
+      <app-product-form (nuevoProducto)="alNuevoProducto($event)"></app-product-form>
     </ng-template>
   </ion-modal>
 </ion-content>

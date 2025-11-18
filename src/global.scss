@@ -35,3 +35,19 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Tipografía y detalles elegantes */
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  color: var(--ion-text-color);
+  background: var(--ion-background-color);
+}
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(31, 41, 55, 0.08);
+}
+
+ion-button {
+  --border-radius: 10px;
+}

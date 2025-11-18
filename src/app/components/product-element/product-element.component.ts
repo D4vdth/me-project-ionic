@@ -11,17 +11,16 @@ import { Product } from 'src/app/interfaces/product';
   imports: [IonCard, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCardContent, IonImg, IonGrid, IonRow, IonCol, IonButton, CommonModule]
 })
 export class ProductElementComponent  implements OnInit {
-
-  @Input() product: Product[];
-  @Output() addToCart = new EventEmitter<Product>();
+  @Input() productos: Product[] = [];
+  @Output() agregarAlCarrito = new EventEmitter<Product>();
 
   constructor() { }
 
 
   ngOnInit() {}
 
-  onAdd(p: Product) {
-    this.addToCart.emit(p);
+  alAgregar(p: Product) {
+    this.agregarAlCarrito.emit(p);
   }
 
 }

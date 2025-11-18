@@ -4,7 +4,7 @@
   </ion-card-header>
   <ion-card-content>
     <ion-list class="cart-list">
-      <ion-item *ngFor="let item of items" class="cart-item">
+      <ion-item *ngFor="let item of articulos" class="cart-item">
         <ion-thumbnail slot="start" class="cart-thumb">
           <img [src]="item.product.image" [alt]="item.product.title" />
         </ion-thumbnail>
@@ -13,7 +13,7 @@
           <div class="cart-sub">x{{ item.quantity }} • {{ item.product.category }}</div>
         </ion-label>
         <div class="cart-price">${{ (item.product.price * item.quantity) | number:'1.2-2' }}</div>
-        <ion-button fill="clear" color="danger" size="small" (click)="removeItem(item.product.id)">Eliminar</ion-button>
+        <ion-button fill="clear" color="danger" size="small" (click)="eliminarArticulo(item.product.id)">Eliminar</ion-button>
       </ion-item>
     </ion-list>
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class="cart-actions">
-      <ion-button expand="block" color="primary" (click)="onClose()">Cerrar</ion-button>
+      <ion-button expand="block" color="primary" (click)="alCerrar()">Cerrar</ion-button>
     </div>
   </ion-card-content>
 </ion-card>

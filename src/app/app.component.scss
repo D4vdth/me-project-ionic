@@ -117,3 +117,23 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+/* Estilos simplificados y modernos para el menú */
+ion-menu ion-list#menu-list ion-list-header {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  padding: 0 12px;
+}
+
+ion-menu ion-item {
+  --min-height: 48px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+
+ion-menu ion-item.selected {
+  --background: rgba(var(--ion-color-primary-rgb), 0.12);
+}

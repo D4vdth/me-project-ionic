@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,9 +8,9 @@
 
   <div class="home-header">
     <ion-avatar class="home-avatar">
-      <img [src]="logoUrl" alt="Logo">
+      <img [src]="urlLogo" alt="Logo">
     </ion-avatar>
-    <h2 class="home-title">{{ nameApp }}</h2>
+    <h2 class="home-title">{{ nombreApp }}</h2>
   </div>
 
   <ion-card class="home-card">
@@ -39,7 +39,7 @@
         </ion-item>
       </ion-list>
 
-      <ion-button expand="block" color="success" (click)="save()">Guardar</ion-button>
+      <ion-button expand="block" color="success" (click)="guardar()">Guardar</ion-button>
     </ion-card-content>
   </ion-card>
 

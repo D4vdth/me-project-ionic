@@ -14,12 +14,12 @@ export class ProductFormComponent  implements OnInit {
 
   constructor() { }
 
-  productForm!: FormGroup;
+  formularioProducto!: FormGroup;
 
-  @Output() newProduct: EventEmitter<Product> = new EventEmitter()
+  @Output() nuevoProducto: EventEmitter<Product> = new EventEmitter()
 
   ngOnInit() {
-    this.productForm = new FormGroup({
+    this.formularioProducto = new FormGroup({
       title: new FormControl('', Validators.required),
       price: new FormControl(null, [Validators.required, Validators.min(0.01)]),
       description: new FormControl('', Validators.required),
@@ -28,10 +28,10 @@ export class ProductFormComponent  implements OnInit {
     });
   }
 
-  public saveProduct(){
-    if (this.productForm.valid) {
-      this.newProduct.emit(this.productForm.value as Product);
-      this.productForm.reset();
+  public guardarProducto(){
+    if (this.formularioProducto.valid) {
+      this.nuevoProducto.emit(this.formularioProducto.value as Product);
+      this.formularioProducto.reset();
     }
   }
 

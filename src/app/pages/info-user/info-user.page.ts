@@ -22,16 +22,16 @@ export class InfoUserPage implements OnInit {
     });
   }
 
-  userName: string = "David Angarita Rodriguez"
-  phoneNumber:number = 123456789
-  idNumber:number = 123456789
-  email:string = "david@david.com"
+  nombreUsuario: string = "David Angarita Rodriguez"
+  numeroTelefono:number = 123456789
+  numeroIdentificacion:number = 123456789
+  correo:string = "david@david.com"
 
-  imgUrl: string = "assets/user.png";
+  urlImagen: string = "assets/user.png";
 
-  phoneIcon = 'phone-portrait-outline';
-  idCardIcon = 'card-outline';
-  emailIcon = 'mail-outline';
+  iconoTelefono = 'phone-portrait-outline';
+  iconoIdentificacion = 'card-outline';
+  iconoCorreo = 'mail-outline';
 
   ngOnInit() {
   }

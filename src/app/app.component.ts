@@ -1,9 +1,9 @@
 
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonModal, IonButton } from '@ionic/angular/standalone';
+import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonModal } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, peopleOutline, peopleSharp, bagSharp, homeOutline, homeSharp } from 'ionicons/icons';
+import { peopleOutline, peopleSharp, bagOutline, bagSharp, homeOutline, homeSharp } from 'ionicons/icons';
 import { CartModalComponent } from './components/cart-modal/cart-modal.component';
 import { CartService } from './data/services/cart-service';
 import { CartItem } from './interfaces/cart-item';
@@ -12,36 +12,36 @@ import { CartItem } from './interfaces/cart-item';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
-  imports: [RouterLink, RouterLinkActive, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonModal, CartModalComponent],
+  imports: [RouterLink, RouterLinkActive, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonModal, CartModalComponent],
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'Profile', url: '/info-user', icon: 'people' },
-    { title: 'Products', url: '/products', icon: 'bag'}
+    { title: 'Inicio', url: '/home', icon: 'home' },
+    { title: 'Perfil', url: '/info-user', icon: 'people' },
+    { title: 'Productos', url: '/products', icon: 'bag'}
   ];
-  isCartOpen = false;
-  cartItems: CartItem[] = [];
-  cartCount = 0;
+  carritoAbierto = false;
+  articulosCarrito: CartItem[] = [];
+  contadorCarrito = 0;
 
   constructor(private cartService: CartService) {
-    addIcons({ mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, peopleOutline, peopleSharp, bagSharp, homeOutline, homeSharp});
+    addIcons({ homeOutline, homeSharp, peopleOutline, peopleSharp, bagOutline, bagSharp });
 
     this.cartService.getItemsObservable().subscribe(items => {
-      this.cartItems = items;
-      this.cartCount = items.reduce((acc, i) => acc + i.quantity, 0);
+      this.articulosCarrito = items;
+      this.contadorCarrito = items.reduce((acc, i) => acc + i.quantity, 0);
     });
   }
 
-  openCart() {
-    this.isCartOpen = true;
+  abrirCarrito() {
+    this.carritoAbierto = true;
   }
 
-  closeCart() {
-    this.isCartOpen = false;
+  cerrarCarrito() {
+    this.carritoAbierto = false;
   }
 
-  onRemoveFromCart(productId: number) {
-    this.cartService.remove(productId);
+  alEliminarDelCarrito(idProducto: number) {
+    this.cartService.remove(idProducto);
   }
 }

@@ -16,40 +16,40 @@ import { CartService } from 'src/app/data/services/cart-service';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonModal, IonButton, CommonModule, FormsModule, ProductElementComponent, ProductFormComponent]
 })
 export class ProductsPage implements OnInit {
-  product: Product[] = [];
-  private apiProducts: Product[] = [];
-  isFormOpen = false;
+  productos: Product[] = [];
+  private productosApi: Product[] = [];
+  formularioAbierto = false;
 
   constructor(private productService: ProductService, private cartService: CartService) {}
 
   ngOnInit() {
-    this.product = [...this.productService.getProducts()];
+    this.productos = [...this.productService.getProducts()];
 
     this.productService.getApiProducts().subscribe(api => {
-      this.apiProducts = api;
-      this.product = [...api, ...this.productService.getProducts()];
+      this.productosApi = api;
+      this.productos = [...api, ...this.productService.getProducts()];
     });
   }
 
-  public processProduct(product: Product) {
-    this.productService.addProduct(product);
-    this.product = [...this.apiProducts, ...this.productService.getProducts()];
+  public procesarProducto(producto: Product) {
+    this.productService.addProduct(producto);
+    this.productos = [...this.productosApi, ...this.productService.getProducts()];
   }
 
-  onAddToCart(product: Product) {
-    this.cartService.add(product);
+  alAgregarAlCarrito(producto: Product) {
+    this.cartService.add(producto);
   }
 
-  openForm() {
-    this.isFormOpen = true;
+  abrirFormulario() {
+    this.formularioAbierto = true;
   }
 
-  closeForm() {
-    this.isFormOpen = false;
+  cerrarFormulario() {
+    this.formularioAbierto = false;
   }
 
-  onNewProduct(product: Product) {
-    this.processProduct(product);
-    this.closeForm();
+  alNuevoProducto(producto: Product) {
+    this.procesarProducto(producto);
+    this.cerrarFormulario();
   }
 }

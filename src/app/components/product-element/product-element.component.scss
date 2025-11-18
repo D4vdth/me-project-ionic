@@ -7,3 +7,16 @@ ion-card {
   display: flex;
   flex-direction: column;
 }
+
+.product-image {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 20px rgba(31, 41, 55, 0.12);
+  transform: translateY(-1px);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
