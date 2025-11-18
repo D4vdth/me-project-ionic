@@ -16,8 +16,19 @@
           }
         </ion-list>
 
+        <ion-item lines="none" button (click)="openCart()">
+          <ion-icon aria-hidden="true" slot="start" [ios]="'bag-outline'" [md]="'bag-sharp'"></ion-icon>
+          <ion-label>Ver carrito ({{ cartCount }})</ion-label>
+        </ion-item>
+
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
+
+  <ion-modal [isOpen]="isCartOpen" (didDismiss)="closeCart()">
+    <ng-template>
+      <app-cart-modal [items]="cartItems" (close)="closeCart()" (remove)="onRemoveFromCart($event)"></app-cart-modal>
+    </ng-template>
+  </ion-modal>
 </ion-app>

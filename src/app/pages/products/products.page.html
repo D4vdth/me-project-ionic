@@ -5,7 +5,12 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
+  <ion-button expand="block" color="secondary" (click)="openForm()">Nuevo producto</ion-button>
 
-  <app-product-element [product]="product"></app-product-element>
-  <app-product-form (newProduct)="processProduct($event)"></app-product-form>
+  <app-product-element [product]="product" (addToCart)="onAddToCart($event)"></app-product-element>
+  <ion-modal [isOpen]="isFormOpen" (didDismiss)="closeForm()">
+    <ng-template>
+      <app-product-form (newProduct)="onNewProduct($event)"></app-product-form>
+    </ng-template>
+  </ion-modal>
 </ion-content>

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
-import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonImg, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonImg, IonGrid, IonRow, IonCol, IonButton } from '@ionic/angular/standalone'
 import { Product } from 'src/app/interfaces/product';
 
 @Component({
@@ -8,15 +8,20 @@ import { Product } from 'src/app/interfaces/product';
   templateUrl: './product-element.component.html',
   styleUrls: ['./product-element.component.scss'],
   standalone: true,
-  imports: [IonCard, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCardContent, IonImg, IonGrid, IonRow, IonCol, CommonModule]
+  imports: [IonCard, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCardContent, IonImg, IonGrid, IonRow, IonCol, IonButton, CommonModule]
 })
 export class ProductElementComponent  implements OnInit {
 
   @Input() product: Product[];
+  @Output() addToCart = new EventEmitter<Product>();
 
   constructor() { }
 
 
   ngOnInit() {}
+
+  onAdd(p: Product) {
+    this.addToCart.emit(p);
+  }
 
 }

@@ -1,0 +1,29 @@
+<ion-card class="cart-card">
+  <ion-card-header>
+    <ion-card-title>Carrito</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list class="cart-list">
+      <ion-item *ngFor="let item of items" class="cart-item">
+        <ion-thumbnail slot="start" class="cart-thumb">
+          <img [src]="item.product.image" [alt]="item.product.title" />
+        </ion-thumbnail>
+        <ion-label>
+          <div class="cart-title">{{ item.product.title }}</div>
+          <div class="cart-sub">x{{ item.quantity }} • {{ item.product.category }}</div>
+        </ion-label>
+        <div class="cart-price">${{ (item.product.price * item.quantity) | number:'1.2-2' }}</div>
+        <ion-button fill="clear" color="danger" size="small" (click)="removeItem(item.product.id)">Eliminar</ion-button>
+      </ion-item>
+    </ion-list>
+
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span class="cart-total">${{ total | number:'1.2-2' }}</span>
+    </div>
+
+    <div class="cart-actions">
+      <ion-button expand="block" color="primary" (click)="onClose()">Cerrar</ion-button>
+    </div>
+  </ion-card-content>
+</ion-card>
